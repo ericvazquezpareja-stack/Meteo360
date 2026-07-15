@@ -1,1 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteo360 - Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="weather-app">
+        <!-- Animated Background -->
+        <div class="animated-bg" id="animatedBg"></div>
+        
+        <!-- Main Container -->
+        <div class="container">
+            <!-- Header with Search -->
+            <header class="header">
+                <h1 class="logo">
+                    <i class="fas fa-cloud-sun"></i> Meteo360
+                </h1>
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar ciudad..." autocomplete="off">
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+            </header>
 
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Current Weather Card -->
+                <section class="current-weather-section">
+                    <div class="glass-card current-weather">
+                        <div class="location-info">
+                            <h2 id="cityName">Cargando...</h2>
+                            <p id="currentDate"></p>
+                        </div>
+                        
+                        <div class="weather-main">
+                            <div class="weather-icon-large">
+                                <i id="weatherIcon" class="fas fa-cloud"></i>
+                            </div>
+                            <div class="temperature-info">
+                                <div class="temperature">
+                                    <span id="temperature">--</span>
+                                    <span class="degree">°C</span>
+                                </div>
+                                <p id="weatherDescription" class="weather-desc">--</p>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="label">Sensación térmica</span>
+                                <span class="value" id="feelsLike">--°C</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Humedad</span>
+                                <span class="value" id="humidity">--%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Viento</span>
+                                <span class="value" id="windSpeed">-- km/h</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="label">Presión</span>
+                                <span class="value" id="pressure">-- mb</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hourly Forecast -->
+                <section class="forecast-section">
+                    <h3 class="section-title">Pronóstico Horario</h3>
+                    <div class="glass-card hourly-forecast" id="hourlyForecast">
+                        <div class="loading">Cargando pronóstico horario...</div>
+                    </div>
+                </section>
+
+                <!-- 7-Day Forecast -->
+                <section class="forecast-section">
+                    <h3 class="section-title">Pronóstico 7 días</h3>
+                    <div class="glass-card seven-day-forecast" id="sevenDayForecast">
+                        <div class="loading">Cargando pronóstico de 7 días...</div>
+                    </div>
+                </section>
+
+                <!-- Additional Info Section -->
+                <section class="additional-info-section">
+                    <!-- Air Quality -->
+                    <div class="glass-card info-card air-quality-card">
+                        <h4 class="card-title">
+                            <i class="fas fa-wind"></i> Calidad del aire
+                        </h4>
+                        <div class="air-quality-content">
+                            <div class="aqi-index">
+                                <div class="aqi-value" id="aqiValue">--</div>
+                                <div class="aqi-label" id="aqiLabel">--</div>
+                            </div>
+                            <div class="air-quality-details">
+                                <div class="pollutant">
+                                    <span>PM2.5</span>
+                                    <span id="pm25">-- μg/m³</span>
+                                </div>
+                                <div class="pollutant">
+                                    <span>PM10</span>
+                                    <span id="pm10">-- μg/m³</span>
+                                </div>
+                                <div class="pollutant">
+                                    <span>O₃</span>
+                                    <span id="o3">-- ppb</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UV Index -->
+                    <div class="glass-card info-card uv-index-card">
+                        <h4 class="card-title">
+                            <i class="fas fa-sun"></i> Índice UV
+                        </h4>
+                        <div class="uv-content">
+                            <div class="uv-value" id="uvIndex">--</div>
+                            <div class="uv-label" id="uvLabel">--</div>
+                            <div class="uv-bar">
+                                <div class="uv-progress" id="uvProgress"></div>
+                            </div>
+                            <p class="uv-advice" id="uvAdvice">--</p>
+                        </div>
+                    </div>
+
+                    <!-- Alerts -->
+                    <div class="glass-card info-card alerts-card">
+                        <h4 class="card-title">
+                            <i class="fas fa-exclamation-triangle"></i> Alertas
+                        </h4>
+                        <div class="alerts-content" id="alertsContent">
+                            <p class="no-alerts">Sin alertas meteorológicas</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
